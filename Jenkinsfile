@@ -30,7 +30,7 @@ pipeline {
                 sh 'docker push Bhuvaneshwari-bhu/k8n:${BUILD_NUMBER}'
             }
         }
-        stage('Push Docker Image') {
+        stage('Run Docker Image') {
             steps {
                 sh 'docker run Bhuvaneshwari-bhu/k8n:${BUILD_NUMBER}'
             }
