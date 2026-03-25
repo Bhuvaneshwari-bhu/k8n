@@ -20,19 +20,20 @@ pipeline {
             steps {
                 sh '''
                 docker build -t k8n:${BUILD_NUMBER} .
-                docker tag k8n:${BUILD_NUMBER} Bhuvaneshwari-bhu/k8n:${BUILD_NUMBER}
+                docker tag k8n:${BUILD_NUMBER} bhuvaneshwaribhu/k8n:${BUILD_NUMBER}
                 '''
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push Bhuvaneshwari-bhu/k8n:${BUILD_NUMBER}'
+                sh 'docker push bhuvaneshwaribhu/k8n:${BUILD_NUMBER}'
             }
         }
+
         stage('Run Docker Image') {
             steps {
-                sh 'docker run Bhuvaneshwari-bhu/k8n:${BUILD_NUMBER}'
+                sh 'docker run bhuvaneshwaribhu/k8n:${BUILD_NUMBER}'
             }
         }
     }
